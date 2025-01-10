@@ -1,0 +1,22 @@
+<header class="fixed top-0 left-0 w-full py-3 flex items-center bg-white shadow-md z-50">
+    <div class="container flex justify-between items-center px-4 min-w-full">
+      <button (click)="onToggleSidebar()" class="sidebar-toggle-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+          <path d="M3 6h18M3 12h18M3 18h18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <a class="text-main font-playpen-sans flex items-center mx-auto" href="home">
+        <span class="ml-1 text-xl">{{ title }}</span>
+      </a>
+      <div class="flex items-center">
+        <div class="flex">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="text-gray-800">
+            <path d="M3 3h2l.4 2M7 13h10l1.6-8H6.4L7 13zm0 0l-1 5h12l-1-5H7z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 bg-darkPink rounded-full">
+            {{ cartCount }}
+          </span>
+        </div>
+      </div>
+    </div>
+  </header>

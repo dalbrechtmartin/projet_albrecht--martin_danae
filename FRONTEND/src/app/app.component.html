@@ -1,0 +1,6 @@
+<app-header (toggleSidebar)="toggleSidebar()"></app-header>
+<app-sidebar [class.open]="isSidebarOpen" (closeSidebar)="closeSidebar()"></app-sidebar>
+<div class="content pt-12" [class.sidebar-open]="isSidebarOpen">
+  <router-outlet></router-outlet>
+</div>
+<app-footer></app-footer>

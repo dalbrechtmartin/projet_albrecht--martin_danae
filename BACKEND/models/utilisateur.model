@@ -1,0 +1,30 @@
+const { DataTypes } = require('sequelize');
+const { sequelize } = require('../config.js');
+
+const Utilisateur = sequelize.define('Utilisateur', {
+  id: {
+    type: DataTypes.INTEGER,
+    autoIncrement: true,
+    primaryKey: true,
+  },
+  nom: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  prenom: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  login: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  pass: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+}, {
+  timestamps: true // inclure les colonnes createdAt et updatedAt
+});
+
+module.exports = Utilisateur;

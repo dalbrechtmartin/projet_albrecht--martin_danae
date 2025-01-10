@@ -1,0 +1,22 @@
+<main class="bg-fairy-gradient">
+  <div class="container mx-auto p-4">
+    <div *ngIf="cartProducts.length; else emptyCart">
+      <div *ngFor="let product of cartProducts" class="flex items-center justify-between p-4 mb-4 border rounded shadow bg-white">
+        <div class="flex items-center">
+          <img [src]="product.image" alt="Image product" class="w-16 h-16 rounded mr-4">
+          <div class="mr-2">
+            <h2 class="text-xl font-semibold font-emilys-candy">{{ product.name }}</h2>
+            <p class="text-gray-600 font-playpen-sans">{{ product.description }}</p>
+            <p class="text-gray-800 font-bold font-playpen-sans">{{ product.price }} €</p>
+          </div>
+        </div>
+        <button (click)="removeFromCart(product)" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-700">
+          Supprimer
+        </button>
+      </div>
+    </div>
+    <ng-template #emptyCart>
+      <p class="text-gray-600">Votre panier est vide.</p>
+    </ng-template>
+  </div>
+</main>

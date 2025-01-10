@@ -1,0 +1,18 @@
+<div class="sidebar-header mt-14">
+    <button (click)="onCloseSidebar()" class="sidebar-close-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+            <path d="M6 18L18 6M6 6l12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+        </svg>
+    </button>
+</div>
+<nav class="flex flex-col font-playpen-sans">
+    <span class="ms-6 font-handlee text-2xl mb-1">Menu</span>
+    <hr>
+    <ul class="ms-6 flex flex-col gap-2">
+        <li class="item-sidebar mt-4"><a routerLink="/home">Accueil</a></li>
+        <li class="item-sidebar"><a routerLink="/catalog">Catalogue</a></li>
+        <li class="item-sidebar"><a routerLink="/cart">Mon Panier</a></li>
+        <li class="item-sidebar"><a routerLink="/account">Mon Compte</a></li>
+    </ul>
+</nav>

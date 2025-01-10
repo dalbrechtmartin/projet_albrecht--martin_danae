@@ -1,0 +1,69 @@
+/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* FONT IMPORTS */
+@font-face {
+    font-family: "Handlee";
+    src: url('assets/fonts/Handlee/Handlee-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Emilys Candy";
+    src: url('assets/fonts/Emilys_Candy/EmilysCandy-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Playpen Sans';
+    src: url('assets/fonts/Playpen_Sans/PlaypenSans-VariableFont_wght.ttf') format('truetype');
+    font-weight: 100 900;
+    font-style: normal;
+}
+
+@layer base {
+
+    body {
+        @apply min-h-screen;
+    }
+
+    footer {
+        @apply mt-auto;
+    }
+
+    h1 {
+        @apply font-playpen-sans text-4xl pt-4 pb-4;
+    }
+
+    h2 {
+        @apply font-handlee text-3xl pt-6 pb-4;
+    }
+
+    h3 {
+        @apply font-playpen-sans text-2xl pt-4 pb-4;
+    }
+
+    p {
+        @apply text-xl;
+    }
+
+}
+
+@layer utilities {
+
+    .bg-fairy-gradient {
+        @apply bg-gradient-to-b from-pink-100 via-white to-pink-100;
+    }
+
+    .container {
+        @apply max-w-3xl mx-auto flex justify-center;
+    }
+    
+}
+
+@layer components {
+}
