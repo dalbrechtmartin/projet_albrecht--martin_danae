@@ -11,7 +11,7 @@ export class AuthService {
 
   login(login: string, password: string): Observable<any> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    return this.http.post<any>(`${environment.backendLoginClient}`, { login, password }, { headers });
+    return this.http.post<any>(`${environment.backendLoginClient}/api/utilisateur/login`, { login, password }, { headers });
   }
 
   isLoggedIn(): boolean {
@@ -21,5 +21,9 @@ export class AuthService {
   register(nom: string, prenom: string, login: string, pass: string): Observable<any> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     return this.http.post<any>(`${environment.backendLoginClient}/api/utilisateur/register`, { nom, prenom, login, pass }, { headers });
+  }
+
+  logout(): void {
+    localStorage.removeItem('token');
   }
 }

@@ -29,6 +29,15 @@ export class ProductListComponent implements OnInit, OnDestroy {
     this.products = this.productService.products$;
   }
 
+  search(event: Event) {
+    const inputElement = event.target as HTMLInputElement;
+    const query = inputElement.value;
+    console.log('Recherche de produits avec le terme:', query);
+    this.subscription.add(
+      this.productService.searchProducts(query).subscribe()
+    );
+  }
+
   addToCart(product: Product) {
     console.log('Adding product to cart:', product);
     this.store.dispatch(new AddProduct(product));

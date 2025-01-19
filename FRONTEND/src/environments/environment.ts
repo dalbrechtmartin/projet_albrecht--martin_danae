@@ -19,7 +19,7 @@ export const environment = {
 
     // WITH API
     // LOCAL
-    backendLoginClient: 'http://localhost:443/api/utilisateur/login',
+    backendLoginClient: 'http://localhost:443',
     backendCatalogue: 'http://localhost:443/api/catalogue',
     backendRegisterClient: 'http://localhost:443/api/utilisateur/register',
     backendUpdateClient: 'http://localhost:443/api/utilisateur/update',

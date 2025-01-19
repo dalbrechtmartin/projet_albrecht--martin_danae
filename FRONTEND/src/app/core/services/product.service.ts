@@ -18,44 +18,39 @@ export class ProductService {
    *
    * @returns Un Observable qui émet un tableau d'objets "Product".
    */
-  public getAllProducts(): Observable<Product[]> {
-    // return this.http.get<Product[]>('assets/mock/products.json').pipe(
-    //   tap(products => this.productSubject.next(products))
-    // );
-
+  getAllProducts(): Observable<Product[]> {
     return this.http.get<Product[]>(`${environment.backendCatalogue}`).pipe(
       tap(products => this.productSubject.next(products))
     );
   }
 
-  // /**
-  //   * Récupère les produits depuis le backend et les filtre en fonction des critères fournis.
-  //   * La recherche est normalisée pour ignorer les accents et la casse.
-  //   *
-  //   * @param {string} [name=''] - Le nom pour filtrer les produits.
-  //   * @param {string} [shape=''] - La forme pour filtrer les produits.
-  //   * @param {string} [categorie=''] - La catégorie pour filtrer les produits.
-  //   * @returns {Observable<Product[]>} - Un observable des produits filtrés.
-  //   */
-  // public getProducts(name: string = '', shape: string = '', categorie: string = ''): Observable<Product[]> {
-  //   // Normalisation de la recherche pour ignorer les accents et la casse
-  //   const normalize = (str: string) => str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+  /**
+   * Récupère les produits depuis le backend et les filtre en fonction des critères fournis.
+   * La recherche est normalisée pour ignorer les accents et la casse.
+   *
+   * @param {string} [name=''] - Le nom pour filtrer les produits.
+   * @param {string} [shape=''] - La forme pour filtrer les produits.
+   * @param {string} [categorie=''] - La catégorie pour filtrer les produits.
+   * @returns {Observable<Product[]>} - Un observable des produits filtrés.
+   */
+  public searchProducts(name: string = '', shape: string = '', categorie: string = ''): Observable<Product[]> {
+    // Normalisation de la recherche pour ignorer les accents et la casse
+    const normalize = (str: string) => str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
 
-  //   return this.http.get<Product[]>(environment.backendClient).pipe(
-  //     map((Products: Product[]) => {
-  //       return Products.filter(Product => {
-  //         const matchesName = name ? normalize(Product.nom).includes(normalize(name)) : true;
-  //         const matchesShape = shape ? normalize(Product.shape).includes(normalize(shape)) : true;
-  //         const matchesCategorie = categorie ? normalize(Product.categorie).includes(normalize(categorie)) : true;
-  //         return matchesName || matchesShape || matchesCategorie;
-  //       });
-  //     }),
-  //     map((filteredProducts: Product[]) => {
-  //       this.ProductSubject.next(filteredProducts);
-  //       return filteredProducts;
-  //     })
-  //   );
-  // }
+    return this.http.get<Product[]>(`${environment.backendCatalogue}`).pipe(
+      map((products: Product[]) => {
+        console.log('Produits récupérés:', products);
+        return products.filter(product => {
+          const matchesName = name ? normalize(product.name).includes(normalize(name)) : true;
+          const matchesShape = shape ? normalize(product.shape).includes(normalize(shape)) : true;
+          const matchesCategorie = categorie ? normalize(product.categorie).includes(normalize(categorie)) : true;
+          return matchesName && matchesShape && matchesCategorie;
+        });
+      }),
+      tap((filteredProducts: Product[]) => {
+        console.log('Produits filtrés:', filteredProducts);
+        this.productSubject.next(filteredProducts);
+      })
+    );
+  }
 }
-
-  

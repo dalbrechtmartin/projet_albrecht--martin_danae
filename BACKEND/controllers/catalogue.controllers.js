@@ -1,3 +1,22 @@
+const { Op } = require('sequelize');
+const Product = require('../models/product.model');
+
+exports.searchProducts = async (req, res) => {
+  try {
+    const query = req.query.search;
+    const products = await Product.findAll({
+      where: {
+        name: {
+          [Op.like]: `%${query}%`
+        }
+      }
+    });
+    res.status(200).json(products);
+  } catch (error) {
+    res.status(500).json({ message: 'Error searching products', error });
+  }
+};
+
 exports.get = (req, res) => {
     const catalogue = [
         {

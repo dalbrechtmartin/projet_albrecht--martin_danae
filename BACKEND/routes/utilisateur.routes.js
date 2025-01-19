@@ -8,7 +8,7 @@ module.exports = app => {
   router.post("/login", utilisateur.login);
 
   // create utilisateur
-  router.post("/", utilisateur.createUser);
+  router.post("/register", utilisateur.createUser);
 
   // update utilisateur
   router.put("/:id", utilisateur.updateUser);
