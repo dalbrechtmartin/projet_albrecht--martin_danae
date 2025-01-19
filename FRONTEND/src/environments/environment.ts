@@ -19,12 +19,12 @@ export const environment = {
 
     // WITH API
     // LOCAL
-    backendLoginClient: 'http://localhost:443',
-    backendCatalogue: 'http://localhost:443/api/catalogue',
-    backendRegisterClient: 'http://localhost:443/api/utilisateur/register',
-    backendUpdateClient: 'http://localhost:443/api/utilisateur/update',
+    // backendLoginClient: 'http://localhost:443',
+    // backendCatalogue: 'http://localhost:443/api/catalogue',
+    // backendRegisterClient: 'http://localhost:443/api/utilisateur/register',
+    // backendUpdateClient: 'http://localhost:443/api/utilisateur/update',
 
     // ONLINE
-    // backendLoginClient: 'https://cnamapp-8h04.onrender.com/api/utilisateur/login',
-    // backendCatalogue: 'https://cnamapp-8h04.onrender.com/api/catalogue',
+    backendLoginClient: 'https://cnamapp-8h04.onrender.com',
+    backendCatalogue: 'https://cnamapp-8h04.onrender.com/api/catalogue',
   };
