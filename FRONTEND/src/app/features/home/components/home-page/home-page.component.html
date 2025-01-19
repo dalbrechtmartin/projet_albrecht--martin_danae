@@ -1,5 +1,33 @@
-<main class="bg-fairy-gradient">
-    <div class="flex justify-center">
-        <p>home-page works!</p>
+<main class="bg-fairy-gradient min-h-screen flex items-center justify-center">
+    <div class="w-full max-w-md p-8 bg-white rounded shadow-md">
+        <h2 class="text-2xl font-bold mb-4" *ngIf="!isLoggedIn">Inscription</h2>
+        <h2 class="text-2xl font-bold mb-4" *ngIf="isLoggedIn">Bienvenue {{ prenom }} {{ nom }}</h2>
+        <form *ngIf="!isLoggedIn" (ngSubmit)="register()">
+            <div class="mb-4">
+                <label for="nom" class="block text-sm font-medium text-gray-700">Nom :</label>
+                <input type="text" id="nom" [(ngModel)]="nom" name="nom" required
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-pink-500 focus:border-pink-500 sm:text-sm">
+            </div>
+            <div class="mb-4">
+                <label for="prenom" class="block text-sm font-medium text-gray-700">Prénom :</label>
+                <input type="text" id="prenom" [(ngModel)]="prenom" name="prenom" required
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-pink-500 focus:border-pink-500 sm:text-sm">
+            </div>
+            <div class="mb-4">
+                <label for="login" class="block text-sm font-medium text-gray-700">Login :</label>
+                <input type="text" id="login" [(ngModel)]="login" name="login" required
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-pink-500 focus:border-pink-500 sm:text-sm">
+            </div>
+            <div class="mb-4">
+                <label for="pass" class="block text-sm font-medium text-gray-700">Mot de passe :</label>
+                <input type="password" id="pass" [(ngModel)]="pass" name="pass" required
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-pink-500 focus:border-pink-500 sm:text-sm">
+            </div>
+            <button type="submit"
+                class="w-full bg-pink-600 text-white py-2 px-4 rounded-md hover:bg-pink-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500">S'inscrire</button>
+        </form>
+        <p class="mt-4 text-center text-sm text-gray-600" *ngIf="!isLoggedIn">Vous avez déjà un compte ?
+            <a href="/account" class="text-pink-600 hover:text-pink-500">Connectez-vous ici</a>.
+        </p>
     </div>
 </main>

@@ -5,7 +5,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { AccountPageComponent } from './components/account-page/account-page.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
 
-
 const routes: Routes = [
   {
     path: '',
@@ -17,11 +16,11 @@ const routes: Routes = [
   },
   { path: '', redirectTo: 'login', pathMatch: 'full' }, // Redirection par défaut
   { path: '**', redirectTo: 'login' }, // Redirection pour les chemins inexistant
-]
+];
 
 @NgModule({
   declarations: [
-    LoginPageComponent,
+    LoginPageComponent
   ],
   imports: [
     AccountPageComponent,

@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'TP05 – Module Angular - Routage / Pattern Redux';
+  title = 'Projet – Module Angular - Boutique Virtuelle';
   isSidebarOpen = false;
 
   toggleSidebar() {

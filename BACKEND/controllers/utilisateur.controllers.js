@@ -30,14 +30,19 @@ exports.login = async (req, res) => {
 };
 
 exports.createUser = async (req, res) => {
-    const user = await Utilisateur.create({
-        nom: req.body.nom,
-        prenom: req.body.prenom,
-        login: req.body.login,
-        pass: req.body.pass
-    });
+    try {
+        const user = await Utilisateur.create({
+            nom: req.body.nom,
+            prenom: req.body.prenom,
+            login: req.body.login,
+            pass: req.body.pass
+        });
+        res.status(201).json(user);
 
-    res.status(201).json(user);
+    } 
+    catch (error) {
+        res.status(500).json({ message: 'Error creating user', error });
+    }
 };
 
 exports.updateUser = async (req, res) => {

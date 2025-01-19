@@ -8,7 +8,7 @@ import { CartState } from '../../../features/cart/states/cart.state';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  title = 'TP05 – Module Angular - Routage / Pattern Redux';
+  title = 'Projet – Module Angular - Boutique Virtuelle';
   
   @Output() toggleSidebar = new EventEmitter<void>();
 
